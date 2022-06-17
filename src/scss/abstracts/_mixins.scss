@@ -1,0 +1,68 @@
+// Footer bottom
+@mixin full-height-content() {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   .site-main {
+      flex-grow: 1;
+   }
+}
+
+// Flex centering
+@mixin flex-center-block() {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+// Center block transform
+@mixin transform-center-xy() {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+// Vertical centering block
+@mixin transform-center-x() {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+// Horizontal centering block
+@mixin transform-center-y() {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+// Fluid text
+// @include fluid-type(320px, 1920px, 10px, 20px);
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+   $u1: unit($min-vw);
+   $u2: unit($max-vw);
+   $u3: unit($min-font-size);
+   $u4: unit($max-font-size);
+
+   @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+         font-size: $min-font-size;
+         @media screen and (min-width: $min-vw) {
+            font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+         }
+         @media screen and (min-width: $max-vw) {
+            font-size: $max-font-size;
+         }
+      }
+   }
+}
+
+// List null styles
+@mixin list-null {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}

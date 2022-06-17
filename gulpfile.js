@@ -107,11 +107,13 @@ task('styles:vendors:watcher', () =>
  */
 // Скрипт для разработки
 task('js:dev', () => src(config.js.main)
+	.pipe(browserSync.reload({stream: true}))
 	.pipe(dest(config.js.dest))
 );
 
 // Плагины для разработки
 task('js:vendors:dev', () => src(config.js.vendors)
+	.pipe(browserSync.reload({stream: true}))
 	.pipe(dest(config.js.dest))
 );
 
@@ -163,6 +165,7 @@ task("server", () => {
 // HTML
 task('html', () => src(config.html.pages)
 	.pipe(twig())
+	.pipe(browserSync.reload({stream: true}))
 	.pipe(dest(config.html.dest))
 );
 

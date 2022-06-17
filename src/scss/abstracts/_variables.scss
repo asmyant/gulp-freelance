@@ -1,1 +1,28 @@
+// Typography
+$font-family-base: 'Open sans', sans-serif;
+$font-size-base: 16px;
+
+// Image directory
+$image-directory: '../images';
+
+// Colors
+$theme-colors: ();
+
+// Grid
+$grid-breakpoints: (
+   xs: 0,
+   sm: 576px,
+   md: 768px,
+   lg: 992px,
+   xl: 1200px,
+   xxl: 1400px
+);
+
+// Gutters
+$gutters: ();
+
+// Transition
+$transition: .3s;
+
+// Utilities
 $utilities: ();
